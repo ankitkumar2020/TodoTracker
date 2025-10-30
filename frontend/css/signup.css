@@ -1,0 +1,18 @@
+/* Optional tweaks for login page */
+
+.login-page .user-details fieldset {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    gap: 12px;
+}
+
+.login-page .btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    margin-left: 42px;
+}
+
+.login-page .user-details button {
+    width: 120px;
+}

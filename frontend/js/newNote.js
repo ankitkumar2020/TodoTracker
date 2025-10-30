@@ -3,8 +3,8 @@ export default  function getNote(el){
     let innerHTML = `
     <div class="dropdown-btn">
      <ul class="dropdown" >
-       <li id="option-edit-${el.id}" ><span><img src="./src/assets/edit.svg"/></span>Edit</li>
-       <li id="option-delete-${el.id}"><span><img src="./src/assets/delete.svg"/></span>Delete</li>  
+       <li id="option-edit-${el.id}" ><span><img src="../src/assets/edit.svg"/></span>Edit</li>
+       <li id="option-delete-${el.id}"><span><img src="../src/assets/delete.svg"/></span>Delete</li>  
      </ul>
     </div>
     <div class="note-wrapper"  id=${el.id}>

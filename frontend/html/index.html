@@ -3,15 +3,18 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" id="favicon" type="image/svg+xml" href="./src/assets/favicon.png" />
+  <link rel="icon" id="favicon" type="image/svg+xml" href="../src/assets/favicon.png" />
+  <link rel="icon" id="favicon" type="image/svg+xml" href="../src/assets/favicon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../css/style.css">
   <title>Todo Tracker</title>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script type="module" src="script.js"></script>
+  <script type="module" src="../js/script.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 
 <body id="body" class="lightmode">
@@ -21,15 +24,45 @@
       <b> <b id="app-name">Todo Tracker</b></b>
       <span id="app-det">A simple todo app to manage day to day tasks/notes</span>
     </div>
+
+
   </nav>
 
+  <div id="show-as"><i class="fa-solid fa-user"></i>
+    <ul>
+      <li id="log-out"><i class="fa-solid fa-arrow-right-from-bracket"></i></i> Log out</li>
+      <li  id="delete-acc"><i class="fa-solid fa-user-xmark"></i> Delete your accout</li>
+    </ul>
+  </div>
   <img src="" alt="" srcset="">
+  <!-- <div class="alert alert-danger" role="alert">
+    You want to <b style="color: #960000;">delete</b> your account?<a href="#" class="alert-link"><i> Click
+        here</i></a>. This can not be undone.
+  </div> -->
+
+
+
+
+
 
   <main id="main">
+
     <div id="main-container">
 
-      <img id="nothing_img" src="./src/assets/nothing.svg" />
+      <div id="nothing_img" src="../src/assets/nothing.svg">
+
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title" id="user-title">Hey 👋, Geek
+            </h5>
+            <p class="card-text">Your dashboard is empty. Let's create your first note.</p>
+            <a href="#" id="btn-add-nothing" class="btn btn-primary">Add now</a>
+          </div>
+        </div>
+
+      </div>
       <div class="notes-container">
+
         <div id="notes-wrapper">
         </div>
       </div>
@@ -81,13 +114,14 @@
   </main>
 
   <footer>
+
     <p>
       Thanks 💖 | Todo Tracker
     </p>
     <div id="feedback-res">
-      Successfully deleted <span><img src="./src/assets/success.svg" /></span>
+      Successfully deleted <span><img src="../src/assets/success.svg" /></span>
     </div>
-    <button id="mode"><img src="./src/assets/dark.svg" alt="darkmode" title="Enable Dark mode" id="mode-img"></button>
+    <button id="mode"><img src="../src/assets/dark.svg" alt="darkmode" title="Enable Dark mode" id="mode-img"></button>
   </footer>
 
 </body>

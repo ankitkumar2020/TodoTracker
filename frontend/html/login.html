@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | TodoTracker</title>
+    <link rel="icon" type="image/svg+xml" href="./src/assets/favicon.png" />
+    <link rel="stylesheet" href="../css/login.css" />
+    <link rel="stylesheet" href="../css/signup.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body class="" id="body">
+    <nav id="navbar">
+        <div id="header-container">
+            <b><b id="app-name">Todo Tracker</b></b>
+            <span id="app-det">A simple todo app to manage day to day tasks/notes</span>
+        </div>
+    </nav>
+
+    <div class="crt-acc">
+        <h3>Welcome back! Log in to continue.</h3>
+    </div>
+
+    <main>
+        <div class="form-container">
+            <form action="" id="login-form">
+                <section class="user-details" id="user-details">
+                    <fieldset>
+                        <legend>Enter your login credentials:</legend>
+                        <label>Your email <br />
+                            <input type="email" name="email" placeholder="abc@mail.com" id="email" required>
+                        </label>
+                        <br />
+                        <label>Your password <br />
+                            <input type="password" name="password" placeholder="••••••••" id="password" required>
+                        </label>
+                    </fieldset>
+
+                    <div class="btn-container" id="btn-conatiner">
+                        <button type="submit" href="./index.html">Login</button>
+                        <button type="reset">Clear</button>
+                    </div>
+                </section>
+            </form>
+        </div>
+    </main>
+
+    <div class="al-have">
+        Don't have an account?
+        <a href="./signup.html"><button>Create one</button></a>
+    </div>
+    <script src="../js/login.js"></script>
+    <script src="../js/system-mode.js"></script>
+
+</body>
+
+</html>

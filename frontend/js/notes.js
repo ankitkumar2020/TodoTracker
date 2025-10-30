@@ -1,3 +1,5 @@
+
+
 let url = location.search //gives url
 
 console.log(url);
@@ -31,15 +33,14 @@ Favicon.setAttribute("href","https://www.svgrepo.com/show/498249/note.svg");
 //night mode
 
 let body = document.getElementById("body");
-let isdark = false;
-let modeBtn = document.getElementById("mode-img");
-let isLight = true;
-modeBtn.addEventListener("click", (e) => {
+//Toggle Theme
+
+let currentTheme = localStorage.getItem('theme');
+console.log(currentTheme);
+
+if(currentTheme=='dark'){
   body.classList.toggle("dark");
-  isLight = !isLight;
-  let resource = isLight ? "./src/assets/moon2.svg" : "./src/assets/sun2.svg";
-  modeBtn.setAttribute("src", resource);
-});
+}
 
 //nav animation 
 

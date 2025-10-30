@@ -1,0 +1,338 @@
+* {
+
+
+    border-radius: 8px;
+    box-sizing: border-box;
+    max-width: 98vw;
+
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --error-color:#bd0000;
+    --error-bg:#ff81815b;
+    --radius-normal: 16px;
+    --radius-curve: 20px;
+
+    --main-color: #ffffff;
+    --appNameColor: black;
+    --appDet: #909193;
+    --text-normalColor: black;
+    /* Deep Blue - for headers, nav */
+    --main-color-secondary: #fdfdfd;
+    /* Slightly lighter for hover states or buttons */
+
+    --color-ocean: #3b9aff;
+    /* Primary action button color */
+    --color-ocean-secondary: #468faf;
+    /* Card headers, tags */
+
+    --color-sky: #61a5c2;
+    /* Backgrounds, secondary buttons */
+    --color-sky-secondary: #89c2d9;
+    /* Input borders, light hovers */
+
+    --color-sky-white: #a9d6e5;
+    /* Light background, section separators */
+    --color-sky-white-secondary: #caf0f8;
+    /* Highlight boxes, hover areas */
+
+    --color-light: #f9f9f9;
+    /* Very light background — almost white but blue-tinted */
+    --color-single-note-bg: #ffffff;
+
+    --info-container-bg: #b0b0b03b;
+}
+
+body {
+
+    height: fit-content;
+    width: 97vw;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    color: var(--text-normalColor);
+    background-color: var(--main-color);
+
+}
+
+.dark {
+    --error-color:#ff0000;
+     --error-bg:#ffb277;
+    --main-color: #282828;
+    /* Light cyan for contrast */
+    --main-color-secondary: #6db4b8;
+    /* Slightly darker, subtle hover */
+    --appNameColor: white;
+    --appDet: #dcefff;
+    --text-normalColor: white;
+    --color-ocean: #45858c;
+    /* Muted teal */
+    --color-ocean-secondary: #5fa3a7;
+    /* Soft teal-blue */
+
+    --color-sky: #497987;
+    /* Darker sky blue */
+    --color-sky-secondary: #3e6472;
+    /* For borders and light hovers */
+
+    --color-sky-white: #2f3e46;
+    /* Very dark desaturated background */
+    --color-sky-white-secondary: #354f52;
+    /* Hover areas or boxes */
+
+    --color-light: #1a1a1a;
+    /* Base background (almost black) */
+    --color-single-note-bg: #2b2929;
+    /* Slightly lighter card/note bg */
+
+    --info-container-bg: #363636;
+}
+
+/* Header Style */
+
+#navbar {
+    text-align: center;
+    overflow-x: hidden;
+    z-index: 300px;
+    border-radius: 2px;
+    position: fixed;
+    border: 0.5pt solid var(--main-color);
+    border-style: none;
+    user-select: none;
+    backdrop-filter: blur(3.5px);
+    top: 0;
+    width: 97vw;
+    margin-left: 0.1px;
+    justify-self: center;
+    padding: 2px 15px;
+    overflow-y: visible;
+    box-sizing: border-box;
+    z-index: 320;
+    padding-bottom: 2px;
+
+
+}
+
+
+#app-name {
+
+    padding: 0px;
+    text-align: center;
+    font-size: xx-large;
+    color: var(--appNameColor);
+    background: linear-gradient(45deg, rgb(70, 70, 255) 10%, var(--color-ocean), var(--color-sky));
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+
+#app-det {
+    margin-top: -2px;
+    border-radius: 0px;
+    font-size: x-small;
+    padding-block: 2px;
+    color: var(--appDet);
+    display: block;
+
+}
+
+main {
+    margin-top: 2px;
+
+}
+
+.crt-acc {
+
+
+    margin-top: 90px;
+    margin-left: 22px;
+
+
+}
+
+.crt-acc h3 {
+    font-size: larger;
+    font-family: Geneva, Tahoma, sans-serif;
+    user-select: none;
+    font-weight: normal;
+}
+
+.form-container {
+    justify-content: center;
+
+    display: in;
+    justify-content: center;
+    width: 100vw;
+
+
+}
+
+
+
+.form-container section {
+
+    display: flex;
+
+    flex-direction: column;
+    align-self: center;
+    justify-self: center;
+    justify-content: center;
+}
+
+.user-details fieldset {
+
+    display: flex;
+    flex-direction: column;
+    border: none;
+    align-items: center;
+    padding-left: 20px;
+    border-radius: 2px;
+}
+
+fieldset legend {
+    visibility: collapse;
+}
+
+.user-details fieldset label,
+label input,
+textarea {
+    width: 100%;
+    margin-bottom: 0;
+
+
+}
+
+fieldset input {
+    min-width: 80%;
+
+    justify-self: center;
+    align-self: center;
+    margin: auto;
+    border-radius: 4px;
+    outline-color: var(--color-ocean);
+    padding: 12px;
+    border: 0.1px solid grey;
+
+    background-color: var(--info-container-bg);
+
+
+
+}
+
+fieldset textarea {
+    min-width: 80%;
+    align-self: flex-start;
+
+    outline-color: var(--color-ocean);
+    padding: 12px;
+    border: 0.1px solid grey;
+
+    background-color: var(--info-container-bg);
+    -webkit-margin-collapse: -12px;
+
+}
+
+.btn-container {
+
+    display: block;
+    flex-direction: row;
+    margin: 12px;
+
+}
+
+.user-details button {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 12px 40px;
+    width: fit-content;
+    border-radius: 4px;
+    border: none;
+    margin: 8px;
+}
+
+.user-details button:active,
+#options li:active {
+    background: var(--appDet);
+}
+
+.user-details button:hover {
+    background: var(--color-ocean);
+    cursor: pointer;
+}
+
+#options li {
+    cursor: pointer;
+}
+
+label {
+    font-size: small;
+    padding-left: 2px;
+    text-decoration: double;
+}
+
+.section-opt {
+    border-top: 1pt solid #808080be;
+    padding-top: 8px;
+    border-radius: 0px;
+    margin-left: 12px;
+}
+
+.leg-txt {
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.continue-options {
+    display: flex;
+    justify-content: center;
+    border: none;
+
+}
+
+
+#options li {
+    text-decoration: none;
+    list-style: none;
+    background-color: transparent;
+    box-shadow: 0px 0px 2px #8080806f inset;
+    display: inline-block;
+    padding: 11px 13px;
+    min-width: 30px;
+    border: 0.1px solid var(--info-container-bg);
+    border-radius: 50%;
+}
+
+.al-have {
+    padding-left: 12px;
+    font-size: small;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.al-have button {
+    border: none;
+    background-color: transparent;
+    color: var(--color-ocean);
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#errorEl {
+    color: var(--error-color);
+    border: 0.1px solid #3f0606;
+    padding: 5px 10px;
+    display: inline-block;
+    width: max-content;
+    border-radius: 2px;
+    margin-bottom: 8px;
+    margin-left: 22px;
+    background-color: var(--error-bg);
+    justify-self: center;
+}

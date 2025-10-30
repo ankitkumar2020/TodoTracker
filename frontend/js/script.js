@@ -2,6 +2,12 @@ import { data } from "./Data.js";
 import { currentDate } from "./DateClass.js";
 import getNote from "./newNote.js";
 
+let isLogged = localStorage.getItem("isLogged");
+
+if (isLogged != "true") {
+  location = "./login.html";
+}
+
 let num = 0;
 let touchedId;
 let body = document.getElementById("body");
@@ -17,11 +23,26 @@ let navbar = document.getElementById("navbar");
 let form_container = document.getElementById("form-container");
 let closeEditorBtn = document.getElementById("close-btn-editor");
 let cancelEditorBtn = document.getElementById("cancel-editor");
+let name = document.getElementById("user-title");
+
 //Change Favicon
 let Favicon = document.getElementById("favicon");
-Favicon.setAttribute("href","https://www.svgrepo.com/show/529022/home-smile-angle.svg");
 
+let username = JSON.parse(localStorage.getItem("user"))["name"] || "Geek";
+let email = JSON.parse(localStorage.getItem("user"))["email"] || "xyz-1234-*&";
+name.innerText = `Hey 👋, ${username}`;
 
+let btnNothing = document.getElementById("btn-add-nothing");
+btnNothing.addEventListener("click", () => {
+  addBtn.click();
+});
+
+console.log(history);
+// Favicon.setAttribute(
+//   "href",
+//   "https://www.svgrepo.com/show/529022/home-smile-angle.svg"
+// );
+//load auth details
 
 // Event listeners and API calls go here
 
@@ -65,7 +86,7 @@ Array.from(data).forEach((el) => {
       title: el.title || "",
       dueAt: el.dueAt || "",
       desc: el.desc || "",
-      creDate : el.createdAt || ""
+      creDate: el.createdAt || "",
     };
 
     let url = window.location.hostname;
@@ -73,8 +94,8 @@ Array.from(data).forEach((el) => {
     let query = new URLSearchParams(data).toString();
 
     setTimeout(() => {
-     // window.location = `${url}/note.html?${query}`;
-     location = `/note.html?${query}`;
+      // window.location = `${url}/note.html?${query}`;
+      location = `./note.html?${query}`;
     }, 1000);
   });
 });
@@ -89,14 +110,6 @@ addBtn.addEventListener("click", () => {
 closeBtn.addEventListener("click", closeForm);
 closeEditorBtn.addEventListener("click", closeEdiorForm);
 
-//🌓 Toggle Theme
-let isLight = true;
-modeBtn.addEventListener("click", (e) => {
-  body.classList.toggle("dark");
-  isLight = !isLight;
-  let resource = isLight ? "./src/assets/dark.svg" : "./src/assets/sun2.svg";
-  modeBtn.setAttribute("src", resource);
-});
 //Edit note 📝
 
 function editNote(el) {
@@ -167,17 +180,21 @@ function createNewNote() {
           dueAt: dueAt,
         };
 
+        let newNote = document.createElement("div");
+        newNote.innerHTML = getNote({ title: title, desc: desc, dueAt: dueAt });
+        notesContainer.appendChild(newNote);
+        toggleNothing(++num);
+
+        form_container.style.display = "none";
         axios
           .post(`http://localhost:8081/register`, data)
           .then((res) => {
             console.log(res.data);
+
             num++;
             if (num > 0) {
               nothingImg.style.display = "none";
             }
-            console.log(num);
-            form_container.style.display = "none";
-
             setTimeout(() => {
               location.reload();
             }, 1);
@@ -220,9 +237,9 @@ let note_Add_text = document.getElementById("add-note-span");
 window.addEventListener("scroll", () => {
   let scrolly = window.scrollY;
   if (scrolly > 44) {
-    note_Add_text.style.display ='none';
+    note_Add_text.style.display = "none";
     addBtn.style.paddingLeft = "30px";
-   
+
     navbar.style.textAlign = "start";
     navbar.style.backgroundColor = "var(--main-color)";
     navbar.style.boxShadow = "0px 0px 2px var(--main-color)";
@@ -230,7 +247,66 @@ window.addEventListener("scroll", () => {
     navbar.style.textAlign = "center";
     navbar.style.backgroundColor = "transparent";
     navbar.style.boxShadow = "unset";
-    note_Add_text.style.display ='block';
-        addBtn.style.paddingLeft = "20px";
+    note_Add_text.style.display = "block";
+    addBtn.style.paddingLeft = "20px";
+  }
+});
+
+//Load Theme from Local Storage
+
+const currentTheme = localStorage.getItem("theme");
+
+if (currentTheme == "dark") {
+  body.classList.toggle("dark");
+}
+
+let resource =
+  currentTheme == "dark" ? "../src/assets/sun2.svg" : "../src/assets/dark.svg";
+
+modeBtn.setAttribute("src", resource);
+
+//🌓 Toggle Theme
+modeBtn.addEventListener("click", (e) => {
+  resource =
+    localStorage.getItem("theme") == "dark"
+      ? "../src/assets/dark.svg"
+      : "../src/assets/sun2.svg";
+  modeBtn.setAttribute("src", resource);
+  body.classList.toggle("dark");
+  const theme2 = body.classList.contains("dark") ? "dark" : "light";
+  localStorage.setItem("theme", theme2);
+});
+
+//log-out
+let logOut = document.getElementById("log-out");
+
+logOut.addEventListener("click", () => {
+  let check = confirm("Are you sure ? You'll log out.");
+
+  if (check) {
+    alert("You Logged Out SuccesFully✅");
+    localStorage.setItem("isLogged", "false");
+    setTimeout(() => {
+      window.location.replace("./login.html");
+    }, 2000);
+  }
+});
+
+//delete account
+
+const alertTrigger = document.getElementById("delete-acc");
+
+alertTrigger.addEventListener("click", () => {
+  let del = confirm(
+    "🔴 Do you want to delete your account? This can not be recovered."
+  );
+  if (del) {
+    let string = `${email}`;
+    let string2 = prompt(`Enter ${string} below to delete your account.`);
+    if (string === string2) {
+      localStorage.removeItem("user");
+      localStorage.removeItem("isLogged");
+      location = "./";
+    }
   }
 });
