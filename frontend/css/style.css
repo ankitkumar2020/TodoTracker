@@ -46,7 +46,7 @@
   --info-container-bg: #b0b0b03b;
 }
 
-body {
+#body{
 
   height: fit-content;
   width: 97vw;
