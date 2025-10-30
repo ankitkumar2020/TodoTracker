@@ -57,7 +57,10 @@
   background-color: var(--main-color);
 
 }
-
+.card-nothing{
+  background-color: var(--main-color);
+color: var(--appNameColor);
+}
 .dark {
   --main-color: #282828;
   /* Light cyan for contrast */
